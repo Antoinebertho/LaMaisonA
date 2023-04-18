@@ -1,6 +1,7 @@
 import  {createProduct, getAllProducts, getProduct, editProduct, deleteProduct} from '../controllers/productController'
 import { Request, Response, Router } from 'express';
-const productRouter: Router = Router();
+
+export const productRouter: Router = Router();
 
 productRouter.post('/products/create', createProduct)
 productRouter.get('/products', getAllProducts)

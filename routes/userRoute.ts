@@ -1,6 +1,7 @@
 import { Router } from "express";
-const userRouter: Router = Router();
 import { createUser , getAllUsers, getUser, deleteUser, editUser, loginUser, logoutUser} from "../controllers/userController"
+
+export const userRouter: Router = Router();
 
 userRouter.post('/create', createUser)
 userRouter.get('/users', getAllUsers)
