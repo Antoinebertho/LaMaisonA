@@ -35,10 +35,14 @@ export const getAllUsers = async(req: Request, res: Response) => {
 export const loginUser = async(req: Request, res: Response) => {
     try {
         const user = await User.findOne({ email: req.body.email });
-        !user && res.status(400).send("User not found");
-        const validPassword = await bcrypt.compare(req.body.password, User.password);
-        !validPassword && res.status(400).send("Invalid password");
-        const token = jwt.sign({ _id: User._id }, process.env.ACCESS_TOKEN_SECRET);
+        if (!user) {
+            return res.status(400).send("User not found");
+        }
+        const validPassword = await bcrypt.compare(req.body.password, user.passwordHash);
+        if (!validPassword) {
+            return res.status(400).send("Invalid password");
+        }
+        const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET);
         res.header("x-auth-token", token).send(token);
     } catch (error) {
         console.error(error);
