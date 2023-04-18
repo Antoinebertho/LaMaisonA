@@ -1,9 +1,8 @@
-const Product = require("../models/productModel")
-const express = require("express");
-const productRouter = express.Router();
+import Product from "../models/productModel";
+import {Request, Response} from "express";
 
 // Create product
-const createProduct = async(req,res)=>{
+export const createProduct = async(req: Request, res: Response)=>{
     try {
         const newProduct= await Product.create(req.body)
         res.send(newProduct)
@@ -13,7 +12,7 @@ const createProduct = async(req,res)=>{
 }
 
 // Get all products
-const getAll = async(req,res)=>{
+export const getAllProducts = async(req: Request, res: Response)=>{
     try {
         const products = await Product.find()
         res.send(products)
@@ -23,7 +22,7 @@ const getAll = async(req,res)=>{
 }
 
 // Get product
-const getProduct = async(req,res)=>{
+export const getProduct = async(req: Request, res: Response)=>{
     try {
         const product = await Product.findById(req.params.id)
         res.send(product)
@@ -33,7 +32,7 @@ const getProduct = async(req,res)=>{
 }
 
 // Edit product
-const editProduct = async(req,res)=>{
+export const editProduct = async(req: Request, res: Response)=>{
     try {
         const product = await Product.findByIdAndUpdate(req.params.id,req.body)
         res.send(product)
@@ -43,7 +42,7 @@ const editProduct = async(req,res)=>{
 }
 
 // Delete product
-const deleteProduct = async(req,res)=>{
+export const deleteProduct = async(req: Request, res: Response)=>{
     try {
         const product = await Product.findByIdAndDelete(req.params.id)
         res.send(product)
@@ -51,5 +50,3 @@ const deleteProduct = async(req,res)=>{
         console.error(error)
     }
 }
-
-module.exports = {createProduct, getAll, getProduct, editProduct, deleteProduct}

@@ -1,6 +1,6 @@
-const express = require('express');
-const userRouter = express.Router();
-const { createUser , getAllUsers, getUser, deleteUser, editUser, loginUser, logoutUser} = require('../controllers/userController')
+import { Router } from "express";
+const userRouter: Router = Router();
+import { createUser , getAllUsers, getUser, deleteUser, editUser, loginUser, logoutUser} from "../controllers/userController"
 
 userRouter.post('/create', createUser)
 userRouter.get('/users', getAllUsers)

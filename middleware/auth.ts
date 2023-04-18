@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 const config = require('config');
 
 const verifyToken = (req, res, next) => {

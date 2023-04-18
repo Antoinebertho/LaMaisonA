@@ -1,10 +1,10 @@
-
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const User = require("../models/userModel");
+import {Request, Response} from "express";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import User from "../models/userModel";
 
 // Create user
-const createUser = async(req,res)=> {
+export const createUser = async(req: Request, res: Response)=> {
     try {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -22,7 +22,7 @@ const createUser = async(req,res)=> {
 }
  
 // Get all users
-const getAllUsers = async(req, res) => {
+export const getAllUsers = async(req: Request, res: Response) => {
     try {
         const users = await User.find();
         res.send(users);
@@ -32,13 +32,13 @@ const getAllUsers = async(req, res) => {
 }
 
 // Login user
-const loginUser = async(req, res) => {
+export const loginUser = async(req: Request, res: Response) => {
     try {
         const user = await User.findOne({ email: req.body.email });
         !user && res.status(400).send("User not found");
-        const validPassword = await bcrypt.compare(req.body.password, user.password);
+        const validPassword = await bcrypt.compare(req.body.password, User.password);
         !validPassword && res.status(400).send("Invalid password");
-        const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET);
+        const token = jwt.sign({ _id: User._id }, process.env.ACCESS_TOKEN_SECRET);
         res.header("x-auth-token", token).send(token);
     } catch (error) {
         console.error(error);
@@ -46,7 +46,7 @@ const loginUser = async(req, res) => {
 }
 
 // Logout user
-const logoutUser = async(req, res) => {
+export const logoutUser = async(req: Request, res: Response) => {
     try {
         res.send("User logged out");
     } catch (error) {
@@ -55,7 +55,7 @@ const logoutUser = async(req, res) => {
 }
 
 // Get user
-const getUser = async(req, res) => {
+export const getUser = async(req: Request, res: Response) => {
     try {
         const user = await User.findById(req.params.id);
         !user && res.status(400).send("User not found");
@@ -66,7 +66,7 @@ const getUser = async(req, res) => {
 }
 
 // edit user
-const editUser = async(req, res) => {
+export const editUser = async(req: Request, res: Response) => {
     try {
         const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
         !user && res.status(400).send("User not found");
@@ -77,7 +77,7 @@ const editUser = async(req, res) => {
 }
 
 // delete user
-const deleteUser = async(req, res) => {
+export const deleteUser = async(req: Request, res: Response) => {
     try {
         const user = await User.findByIdAndDelete(req.params.id);
         !user && res.status(400).send("User not found");
@@ -86,5 +86,3 @@ const deleteUser = async(req, res) => {
         console.error(error);
     }
 }
-
-module.exports = { createUser, getAllUsers, loginUser, logoutUser, getUser, editUser, deleteUser };
