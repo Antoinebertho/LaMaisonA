@@ -56,3 +56,4 @@ default:0 },
 })
 
 exports.Product = mongoose.model('Product', productSchema);
+module.exports = Product
