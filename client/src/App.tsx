@@ -1,13 +1,16 @@
-import { useState } from 'react'
-import './App.css'
-import { Footer } from './Components/Footer'
+import "tailwindcss/tailwind.css";
+import { Footer } from "./Components/Footer";
+import { Nav } from "./Components/Nav";
+import { Header } from "./Components/Header";
 
 function App() {
   return (
-    <div className="App">
-      <Footer/>
+    <div>
+      <Nav />
+      <Header />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
