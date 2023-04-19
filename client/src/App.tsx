@@ -6,20 +6,24 @@ import { Footer } from "./components/Footer";
 import { SignupPage } from "./Pages/SignupPage";
 import { LoginPage } from "./Pages/LoginPage";
 import { ProductsSection } from "./components/ProductsSection";
+import { ProductContext } from "./contexts/productContext";
+import { productsData } from "./data/productsData";
 
 function App() {
   return (
     <div>
-        <BrowserRouter>
-      <Nav />
-      <Routes>
-        <Route path="/SignupPage" element={<SignupPage />} />
-        <Route path="/LoginPage" element={<LoginPage />} />
-      </Routes>
-      <Header />
-      <ProductsSection />
-      <Footer />
-    </BrowserRouter>
+      <BrowserRouter>
+        <Nav />
+        <Routes>
+          <Route path="/SignupPage" element={<SignupPage />} />
+          <Route path="/LoginPage" element={<LoginPage />} />
+        </Routes>
+        <Header />
+        <ProductContext.Provider value={{ products: productsData }}>
+          <ProductsSection />
+        </ProductContext.Provider>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

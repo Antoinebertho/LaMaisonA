@@ -4,5 +4,6 @@ export const productsData = [
         name: 'Monstera Deliciosa',
         description: "Le monstera deliciosa est une plante d'intérieur idéale pour orner maison et appartement",
         price: 15,
-        img: "/assets/Monstera.jng"
+        img: "/assets/Monstera.jng",
+        category: "plantes",
     },]

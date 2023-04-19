@@ -17,14 +17,17 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       />
 
       <div className="bg-white p-4 sm:p-6">
+      <h2 className="mt-0.5 text-lg text-gray-900">
+            {product.name}
+          </h2>
         <a href="#">
-          <h3 className="mt-0.5 text-lg text-gray-900">
-            How to position your furniture for positivity
+          <h3 className="mt-0.5 text-md text-gray-700">
+            {product.description}
           </h3>
         </a>
 
         <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
+          {product.price} €
         </p>
       </div>
     </article>

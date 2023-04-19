@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import * as Scroll from "react-scroll";
+
 export const Header = () => {
   return (
     <section className="relative bg-[url(https://i.pinimg.com/originals/bf/23/13/bf2313f512b2aa9f8d58130796efd545.jpg)] bg-cover bg-center bg-no-repeat">
@@ -18,12 +21,14 @@ export const Header = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4 text-center">
-            <a
-              href="#"
-              className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
+            <Link
+              className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto scroll-smooth"
+              to="Products"
+              smooth={true}
+              href="/"
             >
               Découvir
-            </a>
+            </Link>
 
             <a
               href="#"
