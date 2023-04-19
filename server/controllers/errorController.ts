@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { Error, Request, Response, NextFunction } from 'express';
 import httpStatus from "http-status-codes";
 
