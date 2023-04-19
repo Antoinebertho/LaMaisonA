@@ -8,5 +8,3 @@ categoryRouter.get("/:id", getCategory);
 categoryRouter.post("/", createCategory);
 categoryRouter.put("/:id", updateCategory);
 categoryRouter.delete("/:id", deleteCategory);
-
-export default categoryRouter

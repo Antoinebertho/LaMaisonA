@@ -8,5 +8,3 @@ orderRouter.get("/:id", getOrder);
 orderRouter.post("/", createOrder);
 orderRouter.put("/:id", updateOrder);
 orderRouter.delete("/:id", deleteOrder);
-
-module.exports = orderRouter

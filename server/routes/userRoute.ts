@@ -10,5 +10,3 @@ userRouter.delete('/users/:id/delete', deleteUser)
 userRouter.put('/users/:id/update', editUser)
 userRouter.post('/users/login', loginUser)
 userRouter.post('/users/logout', logoutUser)
-
-module.exports = userRouter
