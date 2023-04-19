@@ -1,5 +1,5 @@
-const httpStatus = require("http-status-codes");
 import { Error, Request, Response, NextFunction } from 'express';
+import httpStatus from "http-status-codes";
 
 module.exports = {
    
