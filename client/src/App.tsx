@@ -5,7 +5,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { SignupPage } from "./Pages/SignupPage";
 import { LoginPage } from "./Pages/LoginPage";
-import { ShoppingSection } from "./components/ShoppingSection";
+import { ProductsSection } from "./components/ProductsSection";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path="/LoginPage" element={<LoginPage />} />
       </Routes>
       <Header />
-      <ShoppingSection />
+      <ProductsSection />
       <Footer />
     </BrowserRouter>
     </div>
