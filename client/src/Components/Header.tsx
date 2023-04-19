@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import * as Scroll from "react-scroll";
+import { Link } from "react-scroll";
 
 export const Header = () => {
   return (
