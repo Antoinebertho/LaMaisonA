@@ -14,11 +14,11 @@ function App() {
     <div>
       <BrowserRouter>
         <Nav />
+        <Header />
         <Routes>
           <Route path="/SignupPage" element={<SignupPage />} />
           <Route path="/LoginPage" element={<LoginPage />} />
         </Routes>
-        <Header />
         <ProductContext.Provider value={{ products: productsData }}>
           <ProductsSection />
         </ProductContext.Provider>
