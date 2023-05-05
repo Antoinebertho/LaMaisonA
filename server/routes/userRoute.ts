@@ -4,9 +4,9 @@ import { createUser , getAllUsers, getUser, deleteUser, editUser, loginUser, log
 export const userRouter: Router = Router();
 
 userRouter.post('/create', createUser)
-userRouter.get('/users', getAllUsers)
-userRouter.get('/users/:id', getUser)
-userRouter.delete('/users/:id/delete', deleteUser)
-userRouter.put('/users/:id/update', editUser)
-userRouter.post('/users/login', loginUser)
-userRouter.post('/users/logout', logoutUser)
+userRouter.get('/', getAllUsers)
+userRouter.get('/:id', getUser)
+userRouter.delete('/:id/delete', deleteUser)
+userRouter.put('/:id/update', editUser)
+userRouter.post('/:id/login', loginUser)
+userRouter.post('/:id/logout', logoutUser)

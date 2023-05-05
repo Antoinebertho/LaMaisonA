@@ -42,7 +42,7 @@ export const loginUser = async(req: Request, res: Response) => {
         if (!validPassword) {
             return res.status(400).send("Invalid password");
         }
-        const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET);
+        const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET ?? "");
         res.header("x-auth-token", token).send(token);
     } catch (error) {
         console.error(error);

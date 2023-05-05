@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
+import { ICategory } from "../interfaces/categoryInterface";
 
-export const categorySchema = new mongoose.Schema({
+export const categorySchema = new mongoose.Schema<ICategory>({
     name: {
         type: String,
         required: true,
@@ -11,10 +12,6 @@ export const categorySchema = new mongoose.Schema({
         required: true
     },
     richDescription: {
-        type: String,
-        default: ''
-    },
-    image: {
         type: String,
         default: ''
     },

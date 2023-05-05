@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import { productRouter } from './routes/productRoute';
 import { userRouter } from './routes/userRoute';
+import { categoryRouter } from './routes/categoryRoute';
 
 main().catch(err => console.log(err));
 
@@ -18,4 +19,5 @@ const port = process.env.PORT || 6000
 app.use(express.urlencoded({extended: false}))
 app.use("/api/products", productRouter)
 app.use("/api/users", userRouter)
+app.use("/api/categories", categoryRouter)
 app.listen(port, ()=>console.log(`${port}`))

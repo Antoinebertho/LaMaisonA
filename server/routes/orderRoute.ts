@@ -4,7 +4,7 @@ import { createOrder, deleteOrder, getOrder, getOrders, updateOrder } from "../c
 export const orderRouter = Router();
 
 orderRouter.get("/", getOrders);
-orderRouter.get("/:id", getOrder);
-orderRouter.post("/", createOrder);
-orderRouter.put("/:id", updateOrder);
-orderRouter.delete("/:id", deleteOrder);
+orderRouter.get("/:id/", getOrder);
+orderRouter.post("/create", createOrder);
+orderRouter.put("/:id/update", updateOrder);
+orderRouter.delete("/:id/delete", deleteOrder);

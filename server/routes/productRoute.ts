@@ -3,7 +3,7 @@ import { Router } from 'express';
 
 export const productRouter: Router = Router();
 
-productRouter.post('/products/create', createProduct)
+productRouter.post('/create', createProduct)
 productRouter.get('/products', getAllProducts)
 productRouter.get('/products/:id', getProduct)
 productRouter.put('/products/:id/update', editProduct)

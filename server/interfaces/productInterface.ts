@@ -1,6 +1,6 @@
-import { Category } from "../interfaces/categoryInterface";
+import { ICategory } from "../interfaces/categoryInterface";
 
-export interface Product {
+export interface IProduct {
     id: string;
     name: string;
     description: string;
@@ -9,7 +9,7 @@ export interface Product {
     images: string[];
     brand: string;
     price: number;
-    category: Category;
+    category: ICategory;
     countInStock: number;
     rating: number;
     isFeatured: boolean;

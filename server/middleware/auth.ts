@@ -12,7 +12,7 @@ export const auth = async (req: AuthenticatedRequest, res: Response, next: NextF
       return res.status(401).json({ msg: 'No token, authorization denied' });
     }
     const decoded = jwt.verify(token, config.ACCESS_TOKEN_SECRET);
-    req.user = await User.findById(decoded.id);
+    req.user = await User.findById(decoded);
     next();
   } catch (err) {
     res.status(401).json({ msg: 'Token is not valid' });
@@ -24,7 +24,7 @@ export const auth = async (req: AuthenticatedRequest, res: Response, next: NextF
       const token = req.header('x-auth-token');
       if (!token) return res.status(401).json({ msg: 'No token, authorization denied' });
       const decoded = jwt.verify(token, config.ACCESS_TOKEN_SECRET);
-      req.user = await User.findById(decoded.id);
+      req.user = await User.findById(decoded);
       next();
     } catch (err) {
       res.status(401).json({ msg: 'Token is not valid' });
@@ -36,7 +36,7 @@ export const auth = async (req: AuthenticatedRequest, res: Response, next: NextF
       const token = req.header('x-auth-token');
       if (!token) return res.status(401).json({ msg: 'No token, authorization denied' });
       const decoded = jwt.verify(token, config.ACCESS_TOKEN_SECRET);
-      req.user = await User.findById(decoded.id);
+      req.user = await User.findById(decoded);
       next();
     } catch (err) {
       res.status(401).json({ msg: 'Token is not valid' });

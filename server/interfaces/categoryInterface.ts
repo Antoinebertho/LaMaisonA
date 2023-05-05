@@ -1,7 +1,8 @@
-export interface Category {
+export interface ICategory {
     id: string;
     name: string;
-    color: string;
+    description: string;
+    richDescription: string;
     icon: string;
-    image: string;
+    images: string[];
 }
