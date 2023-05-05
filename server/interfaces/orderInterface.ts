@@ -1,9 +1,9 @@
-import { IOrderItem } from "../interfaces/orderItemInterface";
-import { IUser } from "../interfaces/userInterface";
+import { OrderItem } from "../interfaces/orderItemInterface";
+import { User } from "../interfaces/userInterface";
 
-export interface IOrder {
+export interface Order {
     id: string;
-    orderItems: IOrderItem[];
+    orderItems: OrderItem[];
     shippingAddress1: string;
     shippingAddress2: string;
     city: string;
@@ -12,6 +12,6 @@ export interface IOrder {
     phone: string;
     status: string;
     totalPrice: number;
-    user: IUser;
+    user: User;
     dateCreated: Date;
 }

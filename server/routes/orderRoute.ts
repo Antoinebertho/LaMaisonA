@@ -1,7 +1,7 @@
-import {router} from "express";
+import {Router} from "express";
 import { createOrder, deleteOrder, getOrder, getOrders, updateOrder } from "../controllers/orderController";
 
-export const orderRouter = router();
+export const orderRouter = Router();
 
 orderRouter.get("/", getOrders);
 orderRouter.get("/:id", getOrder);
