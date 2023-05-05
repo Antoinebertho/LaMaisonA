@@ -6,6 +6,6 @@ export const orderRouter = Router();
 
 orderRouter.get("/", auth, getOrders);
 orderRouter.get("/:id/", auth, getOrder);
-orderRouter.post("/create", auth, isAdmin, createOrder);
-orderRouter.put("/:id/update",auth, isAdmin, updateOrder);
-orderRouter.delete("/:id/delete",auth, isAdmin, deleteOrder);
+orderRouter.post("/create", auth, createOrder);
+orderRouter.put("/:id/update",auth, updateOrder);
+orderRouter.delete("/:id/delete", isAdmin, deleteOrder);

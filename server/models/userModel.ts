@@ -6,6 +6,10 @@ export const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    lastName: {
+        type: String,
+        required: true,
+    },
     email: {
         type: String,
         required: true,
@@ -15,7 +19,7 @@ export const userSchema = new mongoose.Schema({
         required: true,
     },
     phone: {
-        type: String,
+        type: Number,
         required: true,
     },
     isAdmin: {

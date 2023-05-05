@@ -11,7 +11,7 @@ export const auth = async (req: AuthenticatedRequest, res: Response, next: NextF
     if (!token) {
       return res.status(401).json({ msg: 'No token, authorization denied' });
     }
-    const decoded = jwt.verify(token, config.ACCESS_TOKEN_SECRET);
+    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET ?? "");
     req.user = await User.findById(decoded);
     next();
   } catch (err) {
@@ -23,8 +23,10 @@ export const auth = async (req: AuthenticatedRequest, res: Response, next: NextF
     try {
       const token = req.header('x-auth-token');
       if (!token) return res.status(401).json({ msg: 'No token, authorization denied' });
-      const decoded = jwt.verify(token, config.ACCESS_TOKEN_SECRET);
-      req.user = await User.findById(decoded);
+      const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET ?? "");
+      const user = await User.findById(decoded);
+      if (user == null || !user.isAdmin ) return res.status(401).json({ msg: 'User not found or is not an admin' });
+      req.user = user;
       next();
     } catch (err) {
       res.status(401).json({ msg: 'Token is not valid' });
@@ -35,7 +37,7 @@ export const auth = async (req: AuthenticatedRequest, res: Response, next: NextF
     try {
       const token = req.header('x-auth-token');
       if (!token) return res.status(401).json({ msg: 'No token, authorization denied' });
-      const decoded = jwt.verify(token, config.ACCESS_TOKEN_SECRET);
+      const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET ?? "");
       req.user = await User.findById(decoded);
       next();
     } catch (err) {

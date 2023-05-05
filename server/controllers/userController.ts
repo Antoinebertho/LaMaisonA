@@ -12,7 +12,8 @@ export const createUser = async(req: Request, res: Response)=> {
             name: req.body.name,
             lastName: req.body.lastName,
             email: req.body.email,
-            password: hashedPassword,
+            phone: req.body.phone,
+            passwordHash: hashedPassword,
         });
         const user = await newUser.save();
         res.send(user);
